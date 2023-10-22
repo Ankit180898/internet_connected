@@ -18,28 +18,51 @@ class HomeScreen extends StatelessWidget {
           Center(
             child: BlocBuilder<InternetBloc, InternetState>(
               builder: (context, state) {
-               if(state is InternetConnectedState){
-                return Container(height: 100,width: 100,decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.grey),child:
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.wifi,size: 20,color: Colors.white,),
-                    Text("Connected",style: TextStyle(color: Colors.white),),
-                  ],
-                ));
-               }
-               else if(state is InternetDisconnectedState){
-                 return Container(height: 100,width: 100,decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.grey),child:
-                 Column(
-                   mainAxisAlignment: MainAxisAlignment.center,
-                   children: [
-                     Icon(Icons.wifi_off_outlined,size: 20,color: Colors.white,),
-                     Text("Disconnected",style: TextStyle(color: Colors.white),),
-                   ],
-                 ));               }
-               else{
-                 return Text("Loading");
-               }
+                if (state is InternetConnectedState) {
+                  return Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.grey),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.wifi,
+                            size: 20,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            "Connected",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ));
+                } else if (state is InternetDisconnectedState) {
+                  return Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.grey),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.wifi_off_outlined,
+                            size: 20,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            "Disconnected",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ));
+                } else {
+                  return Text("Loading");
+                }
               },
             ),
           ),
